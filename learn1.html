@@ -1,0 +1,17 @@
+<textarea id="user-code"></textarea>
+<button id="run-btn">Run</button>
+
+<iframe sandbox="allow-scripts" id="renderFrame"></iframe>
+
+<script>
+    document.getElementById('run-btn').addEventListener('click', () => {
+      // 1. Get the raw HTML string from the user input
+      const userCode = document.getElementById('user-code').value;
+      
+      // 2. Target the iframe element
+      const iframe = document.querySelector('#renderFrame');
+      
+      // 3. Inject the code securely into the iframe environment
+      iframe.srcdoc = userCode;
+    });
+</script>
